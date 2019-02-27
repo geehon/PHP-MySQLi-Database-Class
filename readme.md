@@ -6,7 +6,7 @@ MysqliDb -- Simple MySQLi wrapper and object mapper with prepared statements
 **[安装](#安装)**  
 **[对象映射](#对象映射)**  
 **[插入数据](#插入数据)**  
-**[Update Query](#update-query)**  
+**[更新数据](#更新数据)**  
 **[Select Query](#select-query)**  
 **[Delete Query](#delete-query)**  
 **[Insert Data](#insert-data)**  
@@ -64,27 +64,25 @@ $db = new MysqliDb (Array (
                 'prefix' => 'my_',
                 'charset' => 'utf8'));
 ```
-table prefix, port and database charset params are optional.
-If no charset should be set charset, set it to null
+table prefix, port 和 database charset 是可选的。
+如果没有charset应设置charset，请将其设置为null 还可以重用已连接的mysqli对象：
 
-Also it is possible to reuse already connected mysqli object:
 ```php
 $mysqli = new mysqli ('host', 'username', 'password', 'databaseName');
 $db = new MysqliDb ($mysqli);
 ```
 
-If no table prefix were set during object creation its possible to set it later with a separate call:
+如果在对象创建期间未设置表前缀，则可以过后通过单独调用来设置它：
 ```php
 $db->setPrefix ('my_');
 ```
 
-If connection to mysql will be dropped Mysqlidb will try to automatically reconnect to the database once. 
-To disable this behavoir use
+如果mysql连接断开，Mysqlidb将尝试自动重新连接到数据库一次。要禁用此行为请使用
 ```php
 $db->autoReconnect = false;
 ```
 
-If you need to get already created mysqliDb object from another class or function use
+如果你需要从另一个类或函数中获取已经创建的mysqliDb对象，可以使用
 ```php
     function init () {
         // db staying private here
@@ -209,7 +207,7 @@ if(!$ids) {
 ### Replace Query
 <a href='https://dev.mysql.com/doc/refman/5.0/en/replace.html'>Replace()</a> method implements same API as insert();
 
-### Update Query
+### 更新数据
 ```php
 $data = Array (
 	'firstName' => 'Bobby',
