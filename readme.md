@@ -1,11 +1,11 @@
 MysqliDb -- Simple MySQLi wrapper and object mapper with prepared statements
 <hr>
 
-### Table of Contents
+### 目录
 
-**[Initialization](#initialization)**  
-**[Objects mapping](#objects-mapping)**  
-**[Insert Query](#insert-query)**  
+**[安装](#安装)**  
+**[对象映射](#对象映射)**  
+**[插入数据](#插入数据)**  
 **[Update Query](#update-query)**  
 **[Select Query](#select-query)**  
 **[Delete Query](#delete-query)**  
@@ -34,26 +34,26 @@ Everyone's time should be valuable, so please consider donating.
 
 [Donate with paypal](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=a%2ebutenka%40gmail%2ecom&lc=DO&item_name=mysqlidb&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted)
 
-### Installation
-To utilize this class, first import MysqliDb.php into your project, and require it.
+### 安装
+要使用此类，首先将`MysqliDb.php`导入到您的项目中，并require。
 
 ```php
 require_once ('MysqliDb.php');
 ```
 
-### Installation with composer
-It is also possible to install library via composer
+### 使用composer安装
+也可以通过composer安装库
 ```
 composer require thingengineer/mysqli-database-class:dev-master
 ```
 
-### Initialization
-Simple initialization with utf8 charset set by default:
+### 安装
+默认情况下使用utf8进行简单初始化：
 ```php
 $db = new MysqliDb ('host', 'username', 'password', 'databaseName');
 ```
 
-Advanced initialization:
+高级初始化：
 ```php
 $db = new MysqliDb (Array (
                 'host' => 'host',
@@ -116,12 +116,12 @@ To select database use connection() method
 $users = $db->connection('slave')->get('users');
 ```
 
-### Objects mapping
+### 对象映射
 dbObject.php is an object mapping library built on top of mysqliDb to provide model representation functionality.
 See <a href='dbObject.md'>dbObject manual for more information</a>
 
-### Insert Query
-Simple example
+### 插入数据
+简单示例
 ```php
 $data = Array ("login" => "admin",
                "firstName" => "John",
@@ -664,7 +664,7 @@ Subquery init without an alias to use in inserts/updates/where Eg. (select * fro
 $sq = $db->subQuery();
 $sq->get ("users");
 ```
- 
+
 A subquery with an alias specified to use in JOINs . Eg. (select * from users) sq
 ```php
 $sq = $db->subQuery("sq");
@@ -729,7 +729,7 @@ if($db->has("users")) {
 } else {
     return "Wrong user/password";
 }
-``` 
+```
 ### Helper methods
 Disconnect from the database:
 ```php
